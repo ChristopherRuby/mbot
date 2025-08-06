@@ -22,7 +22,7 @@ sudo useradd -m -s /bin/bash mbot || echo "Utilisateur mbot existe déjà"
 # Cloner le repository
 echo "📥 Clonage du repository..."
 cd /home/mbot
-sudo -u mbot git clone https://github.com/VOTRE_USERNAME/VOTRE_REPO.git app || echo "Repository déjà cloné"
+sudo -u mbot git clone https://github.com/ChristopherRuby/mbot.git app || echo "Repository déjà cloné"
 cd app
 
 # Création de l'environnement virtuel
