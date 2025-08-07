@@ -2,6 +2,11 @@
 .env
 .env.local
 
+# Infrastructure - fichiers sensibles
+infra/elastic_ip.json
+infra/*.private
+infra/aws-config.json
+
 # Dossiers Python
 __pycache__/
 *.py[cod]
