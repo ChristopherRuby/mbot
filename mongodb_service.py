@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Optional
 import json
 from bson import ObjectId
 from datetime import datetime
@@ -77,6 +77,22 @@ class MongoDBService:
             print(f"Erreur lors de la récupération des statistiques: {e}")
             return {}
     
+    def execute_query(self, query_type: str, query: Dict) -> List[Dict]:
+        """
+        Exécute une requête MongoDB
+        
+        Args:
+            query_type: "find" ou "aggregate"
+            query: Requête MongoDB ou pipeline d'agrégation
+            
+        Returns:
+            Liste des résultats
+        """
+        if query_type == "aggregate":
+            return self.execute_aggregation(query)
+        else:
+            return self.find_movies(query)
+    
     def execute_aggregation(self, pipeline: List[Dict]) -> List[Dict]:
         """Exécute une requête d'agrégation MongoDB"""
         try:
@@ -93,14 +109,6 @@ class MongoDBService:
             return self._serialize_document(result)
         except Exception as e:
             print(f"Erreur lors de la recherche de films: {e}")
-            return []
-    
-    def get_distinct_values(self, field: str) -> List:
-        """Retourne les valeurs distinctes pour un champ donné"""
-        try:
-            return self.collection.distinct(field)
-        except Exception as e:
-            print(f"Erreur lors de la récupération des valeurs distinctes pour {field}: {e}")
             return []
     
     def close_connection(self):

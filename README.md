@@ -6,7 +6,7 @@ Un assistant IA spécialisé dans l'analyse de données cinématographiques avec
 
 ### 🧠 Intelligence Adaptative
 - **Détection automatique** des questions courantes avec requêtes pré-optimisées
-- **Système hybride** : Requêtes standards pour la consistance + API Perplexity pour la complexité
+- **Système intelligent** : Requêtes standards pour la consistance + API Perplexity pour la complexité
 - **Gestion intelligente** des résultats complets vs aperçus selon la demande
 
 ### 🔍 Capacités d'Analyse
@@ -29,7 +29,7 @@ Un assistant IA spécialisé dans l'analyse de données cinématographiques avec
 
 ### Stack Technologique
 - **Base de données** : MongoDB Atlas (`sample_mflix.movies` - 21,349 films)
-- **Connexion BD** : Architecture hybride MCP/Direct avec fallback automatique  
+- **Connexion BD** : Connexion directe MongoDB via PyMongo
 - **Intelligence** : Perplexity API (modèle `sonar` optimisé)
 - **Frontend** : Streamlit avec interface conversationnelle
 - **Backend** : Services Python modulaires avec gestion d'erreurs robuste
@@ -42,7 +42,7 @@ Question Utilisateur
        ↓                                      ↓
 [Requête MongoDB Directe]            [Génération Requête Avancée]
        ↓                                      ↓
-       ↓←────── [Exécution Hybride MCP/Direct] ←────┘
+       ↓←────── [Exécution MongoDB Direct] ←────┘
        ↓
 [Sérialisation Automatique MongoDB]
        ↓
@@ -55,7 +55,6 @@ Question Utilisateur
 ```
 ├── app.py                    # Interface Streamlit avec logique conversationnelle
 ├── perplexity_service.py     # Génération requêtes + formatage réponses
-├── mcp_mongodb_service.py    # Service hybride MCP/connexion directe
 ├── mongodb_service.py        # Connexion directe MongoDB + sérialisation
 └── config.py                # Configuration centralisée
 ```
@@ -66,7 +65,6 @@ Question Utilisateur
 - Python 3.8+ 
 - Compte MongoDB Atlas avec `sample_mflix` chargé
 - Clé API Perplexity
-- (Optionnel) MCP Server MongoDB
 
 ### Installation Rapide
 ```bash
@@ -153,11 +151,10 @@ datetime → ISO format
 Documents imbriqués → Récursif
 ```
 
-### Architecture Hybride MCP/Direct
+### Architecture Simplifiée
 ```python
-# Fallback intelligent
-MCP disponible → Utilisation MCP Server
-MCP indisponible → Connexion directe MongoDB
+# Connexion directe optimisée
+MongoDB Atlas ← PyMongo ← Services Python
 ```
 
 ## 🧪 Tests et Validation

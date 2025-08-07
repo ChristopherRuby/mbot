@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from mcp_mongodb_service import MCPMongoDBService
+from mongodb_service import MongoDBService
 from perplexity_service import PerplexityService
 from config import APP_TITLE, APP_DESCRIPTION
 
@@ -23,7 +23,7 @@ def load_schema_context():
 def init_services():
     """Initialise les services MongoDB et Perplexity"""
     if 'mongodb_service' not in st.session_state:
-        st.session_state.mongodb_service = MCPMongoDBService()
+        st.session_state.mongodb_service = MongoDBService()
     
     if 'perplexity_service' not in st.session_state:
         st.session_state.perplexity_service = PerplexityService()
@@ -37,10 +37,8 @@ def display_connection_status():
     col1, col2 = st.columns(2)
     
     with col1:
-        if (st.session_state.mongodb_service.use_mcp and st.session_state.mongodb_service.mcp_client) or \
-           (not st.session_state.mongodb_service.use_mcp and st.session_state.mongodb_service.mongodb_service.client):
-            connection_type = "MCP" if st.session_state.mongodb_service.use_mcp else "Direct"
-            st.success(f"✅ MongoDB connecté ({connection_type})")
+        if st.session_state.mongodb_service.client:
+            st.success("✅ MongoDB connecté")
             stats = st.session_state.mongodb_service.get_collection_stats()
             if stats and 'total_documents' in stats:
                 st.info(f"📊 {stats.get('total_documents', 0)} films dans la base")
@@ -78,17 +76,9 @@ def handle_user_question(user_question: str):
     with st.spinner("📊 Exécution de la requête MongoDB..."):
         try:
             mongodb_query = query_info.get("mongodb_query", {})
+            query_type = query_info.get("query_type", "find")
             
-            if query_info.get("query_type") == "aggregate":
-                # Requête d'agrégation
-                if isinstance(mongodb_query, list):
-                    results = st.session_state.mongodb_service.execute_query("aggregate", mongodb_query)
-                else:
-                    st.error("Format de pipeline d'agrégation invalide")
-                    return
-            else:
-                # Requête simple find
-                results = st.session_state.mongodb_service.execute_query("find", mongodb_query)
+            results = st.session_state.mongodb_service.execute_query(query_type, mongodb_query)
         
         except Exception as e:
             st.error(f"Erreur lors de l'exécution de la requête: {str(e)}")

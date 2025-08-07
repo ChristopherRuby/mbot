@@ -1,6 +1,6 @@
 import requests
 import json
-from typing import Dict, List, Any
+from typing import Dict, List
 from config import PERPLEXITY_API_KEY, PERPLEXITY_API_URL, PERPLEXITY_MODEL
 
 

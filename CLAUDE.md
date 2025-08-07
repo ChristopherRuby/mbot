@@ -5,7 +5,7 @@ Tu es un assistant spécialisé dans l'analyse de données cinématographiques M
 
 ## Architecture Technique Actuelle
 - **Base de données** : MongoDB Atlas - `sample_mflix.movies` (21,349 films)
-- **Connexion** : Architecture hybride MCP/Direct avec fallback automatique
+- **Connexion** : Connexion directe MongoDB via PyMongo
 - **Frontend** : Streamlit avec interface conversationnelle
 - **LLM** : Perplexity API avec modèle `sonar` (optimisé pour recherche et grounding)
 - **Pipeline** : Questions naturelles → Requêtes standards/Perplexity → MongoDB → Réponses formatées
