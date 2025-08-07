@@ -149,6 +149,7 @@ def main():
         "Quelle est la note moyenne des films parus en 2015 ?",
         "Quels sont les 5 réalisateurs qui ont produit le plus de films entre 2000 et 2015 ?",
         "Combien de films sont sortis entre 2012 et 2014 ?",
+        "Quel est le premier film paru en 2016 et qui l'a réalisé ?",
         "Peux-tu me montrer le contenu d'un document de la collection ?",
         "Quel est le genre le plus populaire par décennie entre 1970 et 2010 ?"
     ]
