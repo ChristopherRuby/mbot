@@ -119,6 +119,26 @@ def main():
         layout="wide"
     )
     
+    # Signature en haut
+    st.markdown("<div style='text-align: left; font-style: italic; color: #666; margin-bottom: 10px;'>By Christopher M.</div>", unsafe_allow_html=True)
+    
+    # Style pour bouton bleu
+    st.markdown("""
+    <style>
+    .stButton > button[kind="primary"] {
+        background-color: #1f77b4 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background-color: #1565c0 !important;
+        box-shadow: 0 2px 8px rgba(31, 119, 180, 0.3);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     st.title(APP_TITLE)
     st.markdown(APP_DESCRIPTION)
     
