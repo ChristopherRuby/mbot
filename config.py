@@ -14,5 +14,5 @@ MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "sample_mflix")
 MONGODB_COLLECTION = os.getenv("MONGODB_COLLECTION", "movies")
 
 # Configuration de l'application
-APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies"
+APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies by Data Factory :)"
 APP_DESCRIPTION = "Assistant spécialisé dans l'analyse de données cinématographiques"
