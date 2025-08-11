@@ -14,7 +14,7 @@ MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "sample_mflix")
 MONGODB_COLLECTION = os.getenv("MONGODB_COLLECTION", "movies")
 
 # Configuration de l'application
-APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies by Data Factory"
+APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies"
 APP_DESCRIPTION = """
 Outil professionnel d'analyse de données cinématographiques utilisant l'intelligence artificielle.
 Application web dédiée à l'exploration et l'analyse statistique de 21,349 films via requêtes en langage naturel.
