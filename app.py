@@ -2,7 +2,7 @@ import streamlit as st
 import json
 from mongodb_service import MongoDBService
 from perplexity_service import PerplexityService
-from config import APP_TITLE, APP_DESCRIPTION
+from config import APP_TITLE, APP_DESCRIPTION, APP_KEYWORDS, APP_AUTHOR
 
 
 def load_schema_context():
@@ -116,8 +116,36 @@ def main():
     st.set_page_config(
         page_title=APP_TITLE,
         page_icon="🎬",
-        layout="wide"
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+            'About': "Outil professionnel d'analyse de données cinématographiques - Data Factory"
+        }
     )
+    
+    # Métadonnées SEO et sécurité
+    st.markdown(f"""
+    <meta name="description" content="{APP_DESCRIPTION.replace(chr(10), ' ').strip()}">
+    <meta name="keywords" content="{APP_KEYWORDS}">
+    <meta name="author" content="{APP_AUTHOR}">
+    <meta name="robots" content="index, follow">
+    <meta name="application-name" content="MongoDB Movies Analytics">
+    <meta name="theme-color" content="#1f77b4">
+    <meta property="og:title" content="{APP_TITLE}">
+    <meta property="og:description" content="Plateforme professionnelle d'analyse de données cinématographiques avec IA">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    """, unsafe_allow_html=True)
+    
+    # Headers de sécurité et information métier
+    st.markdown("""
+    <script>
+        // Configuration sécurisée pour application business
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Application Business Intelligence - Data Factory');
+        });
+    </script>
+    """, unsafe_allow_html=True)
     
     # Signature en haut
     st.markdown("<div style='text-align: left; font-style: italic; color: #666; margin-bottom: 10px;'>By Christopher M.</div>", unsafe_allow_html=True)
@@ -141,6 +169,18 @@ def main():
     
     st.title(APP_TITLE)
     st.markdown(APP_DESCRIPTION)
+    
+    # Description professionnelle enrichie
+    st.info("""
+    🏢 **Application Professionnelle Business Intelligence**
+    
+    Plateforme d'analyse de données dédiée aux professionnels du cinéma, analystes de données et 
+    chercheurs académiques. Utilise MongoDB et l'intelligence artificielle pour transformer 
+    des questions en langage naturel en analyses statistiques avancées.
+    
+    📊 **Cas d'usage professionnel** : Études de marché, analyses de tendances, recherche académique, 
+    reporting business intelligence, veille concurrentielle dans l'industrie cinématographique.
+    """)
     
     # Initialiser les services
     init_services()
@@ -190,13 +230,22 @@ def main():
                 st.metric("Taille (MB)", stats.get('size_mb', 0))
                 st.metric("Index", stats.get('indexes', 0))
         
-        st.markdown("### 🛠 Fonctionnalités")
+        st.markdown("### 🛠 Fonctionnalités Business")
         st.markdown("""
-        - 📊 Statistiques temporelles
-        - 🏆 Classements et top N
-        - 🔍 Comparaisons multi-critères
-        - 📈 Analyses croisées
-        - 🎭 Exploration par genres
+        - 📊 **Analyses statistiques** professionnelles
+        - 🏆 **Classements** et études de marché
+        - 🔍 **Comparaisons** multi-critères avancées
+        - 📈 **Analyses croisées** et corrélations
+        - 🎭 **Segmentation** par genres et périodes
+        - 💼 **Reporting** business intelligence
+        """)
+        
+        st.markdown("### 🎯 Public Cible")
+        st.markdown("""
+        - **Professionnels** du cinéma
+        - **Analystes** de données
+        - **Chercheurs** académiques
+        - **Consultants** media & divertissement
         """)
         
         if st.button("📖 Voir un exemple de document"):

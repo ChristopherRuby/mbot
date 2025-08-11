@@ -14,5 +14,13 @@ MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "sample_mflix")
 MONGODB_COLLECTION = os.getenv("MONGODB_COLLECTION", "movies")
 
 # Configuration de l'application
-APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies by Data Factory :)"
-APP_DESCRIPTION = "Assistant spécialisé dans l'analyse de données cinématographiques"
+APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies by Data Factory"
+APP_DESCRIPTION = """
+Outil professionnel d'analyse de données cinématographiques utilisant l'intelligence artificielle.
+Application web dédiée à l'exploration et l'analyse statistique de 21,349 films via requêtes en langage naturel.
+Plateforme business intelligence pour professionnels du cinéma et analystes de données.
+"""
+
+# Métadonnées SEO
+APP_KEYWORDS = "analyse données cinéma, MongoDB, business intelligence, statistiques films, outil professionnel"
+APP_AUTHOR = "Data Factory - Christopher M."
