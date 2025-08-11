@@ -170,17 +170,17 @@ def main():
     st.title(APP_TITLE)
     st.markdown(APP_DESCRIPTION)
     
-    # Description professionnelle enrichie
-    st.info("""
-    🏢 **Application Professionnelle Business Intelligence**
+    # # Description professionnelle enrichie
+    # st.info("""
+    # 🏢 **Application Professionnelle Business Intelligence**
     
-    Plateforme d'analyse de données dédiée aux professionnels du cinéma, analystes de données et 
-    chercheurs académiques. Utilise MongoDB et l'intelligence artificielle pour transformer 
-    des questions en langage naturel en analyses statistiques avancées.
+    # Plateforme d'analyse de données dédiée aux professionnels du cinéma, analystes de données et 
+    # chercheurs académiques. Utilise MongoDB et l'intelligence artificielle pour transformer 
+    # des questions en langage naturel en analyses statistiques avancées.
     
-    📊 **Cas d'usage professionnel** : Études de marché, analyses de tendances, recherche académique, 
-    reporting business intelligence, veille concurrentielle dans l'industrie cinématographique.
-    """)
+    # 📊 **Cas d'usage professionnel** : Études de marché, analyses de tendances, recherche académique, 
+    # reporting business intelligence, veille concurrentielle dans l'industrie cinématographique.
+    # """)
     
     # Initialiser les services
     init_services()
