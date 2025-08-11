@@ -230,23 +230,14 @@ def main():
                 st.metric("Taille (MB)", stats.get('size_mb', 0))
                 st.metric("Index", stats.get('indexes', 0))
         
-        st.markdown("### 🛠 Fonctionnalités Business")
+        st.markdown("### 🛠 Fonctionnalités")
         st.markdown("""
-        - 📊 **Analyses statistiques** professionnelles
-        - 🏆 **Classements** et études de marché
+        - 📊 **Analyses statistiques**
         - 🔍 **Comparaisons** multi-critères avancées
         - 📈 **Analyses croisées** et corrélations
         - 🎭 **Segmentation** par genres et périodes
-        - 💼 **Reporting** business intelligence
         """)
-        
-        st.markdown("### 🎯 Public Cible")
-        st.markdown("""
-        - **Professionnels** du cinéma
-        - **Analystes** de données
-        - **Chercheurs** académiques
-        - **Consultants** media & divertissement
-        """)
+    
         
         if st.button("📖 Voir un exemple de document"):
             sample_doc = st.session_state.mongodb_service.get_sample_document()

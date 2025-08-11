@@ -16,7 +16,7 @@ MONGODB_COLLECTION = os.getenv("MONGODB_COLLECTION", "movies")
 # Configuration de l'application
 APP_TITLE = "🎬 Chatbot Analytique MongoDB Movies"
 APP_DESCRIPTION = """
-Outil d'analyse de données cinématographiques utilisant l'intelligence artificielle pour aller chercher et analyser des données provenant de MongoDB
+Outil d'analyse de données cinématographiques utilisant l'intelligence artificielle pour aller analyser des données provenant de MongoDB
 """
 
 # Métadonnées SEO
